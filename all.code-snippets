@@ -1,0 +1,15 @@
+{
+  "doc_class": {
+    "prefix": "doc_class",
+    "body": [
+      "/**",
+      " * ${1:Function description.}",
+      " * ",
+      " * @author ${2:`g:snips_author`}",
+      " * @since `strftime('%d %B, %Y')`",
+      " */",
+      ""
+    ],
+    "description": "doc_class"
+  }
+}

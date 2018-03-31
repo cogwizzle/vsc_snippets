@@ -1,0 +1,371 @@
+{
+  "reveal": {
+    "prefix": "reveal",
+    "body": [
+      "var ${1:name_of_class} = function(){",
+      "\t${2}",
+      "",
+      "\treturn {",
+      "",
+      "\t}",
+      "}"
+    ],
+    "description": "reveal"
+  },
+  "logVar": {
+    "prefix": "logVar",
+    "body": [
+      "console.log('$1: ', ${1:var_name});"
+    ],
+    "description": "logVar"
+  },
+  "es6_getset": {
+    "prefix": "es6_getset",
+    "body": [
+      "/**",
+      " * Get the ${1:lowercase_name_of_property} of ${2:name_of_class}.",
+      " *",
+      " * @return {${3:type_of_property}} $1 of $2.",
+      " */",
+      "get $1() {",
+      "\treturn this._$1;",
+      "}",
+      "",
+      "/**",
+      " * Set the $1 of $2.",
+      " *",
+      " * @param {$3} value $1 of $2.",
+      " */",
+      "set $1(value) {",
+      "\tthis._$1 = value;",
+      "}"
+    ],
+    "description": "es6_getset"
+  },
+  "getset": {
+    "prefix": "getset",
+    "body": [
+      "function get${1:upper_property_name}(){",
+      "\treturn ${2:lower_property_name};",
+      "}",
+      "",
+      "function set$1(new$1){",
+      "\t$2 = new$1;",
+      "}"
+    ],
+    "description": "getset"
+  },
+  "mirror": {
+    "prefix": "mirror",
+    "body": [
+      "\"${1:name_of_property}\" : $1,"
+    ],
+    "description": "mirror"
+  },
+  "notifyAll": {
+    "prefix": "notifyAll",
+    "body": [
+      "/**",
+      " * Notify all subscribers.",
+      " */",
+      "function fire(){",
+      "\t${1:subscribers}.forEach(function(item){",
+      "\t\titem.notify(${2:notification});",
+      "\t});",
+      "}",
+      "",
+      "/**",
+      " * Subscribe to observable.",
+      " */",
+      "function subscribe(subscriber){",
+      "\t$1.push(subscriber);",
+      "}",
+      "",
+      "/**",
+      " * Unsubscribe from observable.",
+      " */",
+      "function unsubscribe(subscriber){",
+      "\t$1 = $1.filter(",
+      "\t\tfunction(item !== subscriber){",
+      "\t\t\treturn item",
+      "\t\t}",
+      "\t);",
+      "}"
+    ],
+    "description": "notifyAll"
+  },
+  "notify": {
+    "prefix": "notify",
+    "body": [
+      "/**",
+      " * Notify this subscriber.",
+      " */",
+      "function notify(${1:argument}){",
+      "\t${2://TODO implement function.}",
+      "}"
+    ],
+    "description": "notify"
+  },
+  "singleton": {
+    "prefix": "singleton",
+    "body": [
+      "/**",
+      " * ${2:class_description}",
+      " *",
+      " * @see singleton",
+      " */",
+      "var ${1:class_name} = (function(){",
+      "\tvar instance;",
+      "",
+      "\t/**",
+      "\t * Get singleton instance of object.",
+      "\t */",
+      "\tfunction getInstance(){",
+      "\t\tif(!instance){",
+      "",
+      "\t\t\t// Actual object implementation.",
+      "\t\t\tinstance = (function(){",
+      "",
+      "\t\t\t\treturn {",
+      "",
+      "\t\t\t\t};",
+      "\t\t\t})();",
+      "\t\t}",
+      "\t\treturn instance;",
+      "\t}",
+      "",
+      "\treturn {",
+      "\t\t\"getInstance\" : getInstance,",
+      "\t}",
+      "})();"
+    ],
+    "description": "singleton"
+  },
+  "setTimeout": {
+    "prefix": "setTimeout",
+    "body": [
+      "setTimeout(function(){",
+      "\t${2:}",
+      "}, ${1:1000});"
+    ],
+    "description": "setTimeout"
+  },
+  "fetch_json": {
+    "prefix": "fetch_json",
+    "body": [
+      "fetch(${1:url}, ${2:fetchOptions})",
+      "\t.then(function(response){",
+      "\t\treturn response.json();",
+      "\t}).then(function(json){",
+      "\t\t${3:// TODO implement promise.}",
+      "\t});"
+    ],
+    "description": "fetch_json"
+  },
+  "riot_fab": {
+    "prefix": "riot_fab",
+    "body": [
+      "riot.mount(\"${1:#anchor}\", \"floating-action-button\", {",
+      "\t\"press\" : ${2:functionName},",
+      "\t\"background_color\" : \"#4CAF50\",",
+      "\t\"icon_class\" : \"${3:icon}\",",
+      "});"
+    ],
+    "description": "riot_fab"
+  },
+  "es6_param": {
+    "prefix": "es6_param",
+    "body": [
+      "@param {${1:type_of_property}} ${2:property_name} ${3:description}"
+    ],
+    "description": "es6_param"
+  },
+  "es6_class": {
+    "prefix": "es6_class",
+    "body": [
+      "/**",
+      " * Represents $1.",
+      " */",
+      "export default class ${1:class_name} {",
+      "",
+      "\t/**",
+      "\t * Default constructor.",
+      "\t */",
+      "\tconstructor() {",
+      "\t\tsuper();",
+      "\t}",
+      "}"
+    ],
+    "description": "es6_class"
+  },
+  "es6_with": {
+    "prefix": "es6_with",
+    "body": [
+      "/**",
+      " * Set the ${1:lower_property} property.",
+      " *",
+      " * @param new${2:capital_property} {${3:type}} $1.",
+      " * return this.",
+      " */",
+      "with$2(new$2) {",
+      "\tthis.$1 = new$2;",
+      "\treturn this;",
+      "}",
+      ""
+    ],
+    "description": "es6_with"
+	},
+  "jest_test": {
+    "prefix": "jest_test",
+    "body": [
+      "it('${1:Test shall have a description}', () => {",
+      "",
+      "\t${3:// TODO implement me!}",
+      "\tconst expected = ${2:1};",
+      "",
+      "\texpect(1).toEqual(expected);",
+      "});",
+      ""
+    ],
+    "description": "jest_test"
+  },
+  "react_import": {
+    "prefix": "react_import",
+    "body": [
+      "import React from 'react';"
+    ],
+    "description": "react_import"
+  },
+  "react_create": {
+    "prefix": "react_create",
+    "body": [
+      "export default class ${1:ComponentName} extends React.Component {",
+      "\t",
+      "\t/**",
+      "\t * Default constructor.",
+      "\t *",
+      "\t * @param {Object[]} props Tag properties.",
+      "\t */",
+      "\tconstructor(props) {",
+      "\t\tsuper(props);",
+      "\t}",
+      "",
+      "\t/**",
+      "\t * JSX based render function.",
+      "\t *",
+      "\t * @return {string} JSX DOM.",
+      "\t */",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t${2:<div>TODO implement function</div>}",
+      "\t\t);",
+      "\t}",
+      "}"
+    ],
+    "description": "react_create"
+	},
+	"react_stateless": {
+		"prefix": "react_stateless",
+		"body": [
+			"(props) => (",
+			"\t<div>",
+			"\t\t${1:\\{props.children\\}}",
+			"\t</div>",
+			");"
+		],
+		"description": "Create a stateless react component."
+	},
+  "react_pre_mount": {
+    "prefix": "react_pre_mount",
+    "body": [
+      "/**",
+      " * Before component mounts.",
+      " */",
+      "componentWillMount() {",
+      "\t${2:// TODO implement.}",
+      "}"
+    ],
+    "description": "react_pre_mount"
+  },
+  "react_post_mount": {
+    "prefix": "react_post_mount",
+    "body": [
+      "/**",
+      " * After component mounts.",
+      " */",
+      "componentDidMount() {",
+      "\t${2:// TODO implement.}",
+      "}"
+    ],
+    "description": "react_post_mount"
+  },
+  "react_remove": {
+    "prefix": "react_remove",
+    "body": [
+      "/**",
+      " * Before react is removed from DOM.",
+      " */",
+      "componentWillUnmount() {",
+      "\t${2:// TODO implement.}",
+      "}"
+    ],
+    "description": "react_remove"
+  },
+  "react_redux_subscribe": {
+    "prefix": "react_redux_subscribe",
+    "body": [
+      "/**",
+      " * After component mounts.",
+      " */",
+      "componentDidMount() {",
+      "\tconst {store} = this.context;",
+      "\tthis.unsubscribe = store.subscribe(() => {",
+      "\t\tthis.forceUpdate();",
+      "\t});",
+      "}",
+      "",
+      "/**",
+      " * Before react is removed from DOM.",
+      " */",
+      "componentWillUnmount() {",
+      "\tthis.unsubscribe()",
+      "}"
+    ],
+    "description": "react_redux_subscribe"
+  },
+  "react_redux_context": {
+    "prefix": "react_redux_context",
+    "body": [
+      "${1:component_name}.contextTypes = {",
+      "\tstore: PropTypes.object",
+      "};"
+    ],
+    "description": "react_redux_context"
+  },
+  "react_redux_context_import": {
+    "prefix": "react_redux_context_import",
+    "body": [
+      "import PropTypes from 'prop-types';",
+      ""
+    ],
+    "description": "react_redux_context_import"
+  },
+  "redux_reducer": {
+    "prefix": "redux_reducer",
+    "body": [
+      "function ${1:reducer_name}(state = {}, action) {",
+      "\tswitch (action.type) {",
+      "\t\tcase '${2:first_case}':",
+      "",
+      "\t\t\treturn {};",
+      "\t\tdefault:",
+      "\t\t\treturn state;",
+      "\t}",
+      "}",
+      "",
+      "module.exports = $1;",
+      ""
+    ],
+    "description": "redux_reducer"
+  }
+}
