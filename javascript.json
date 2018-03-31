@@ -269,7 +269,7 @@
 		"body": [
 			"(props) => (",
 			"\t<div>",
-			"\t\t${1:\\{props.children\\}}",
+			"\t\t${1:{props.children\\}}",
 			"\t</div>",
 			");"
 		],
